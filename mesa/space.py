@@ -632,7 +632,7 @@ class ContinuousSpace:
         self.height = y_max - y_min
         self.center = np.array(((x_max + x_min) / 2, (y_max + y_min) / 2))
         self.size = np.array((self.width, self.height))
-        self.torus = torus
+        self.torus = False
 
         self._agent_points = None
         self._index_to_agent = {}
