@@ -758,7 +758,12 @@ class ContinuousSpace:
         if not self.out_of_bounds(pos):
             return pos
         elif not self.torus:
-            raise Exception("Point out of bounds, and space non-toroidal.")
+            x = self.x_min
+            y = self.y_min
+            if isinstance(pos, tuple):
+                return (x, y)
+            else:
+                return np.array((x, y))
         else:
             x = self.x_min + ((pos[0] - self.x_min) % self.width)
             y = self.y_min + ((pos[1] - self.y_min) % self.height)
